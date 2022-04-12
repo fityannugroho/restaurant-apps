@@ -116,19 +116,40 @@ h2 {
   font-size: 1.75rem;
 }
 
-.hero {
-  width: 100%;
-  max-height: 18rem;
-  overflow: hidden !important;
+.parallax {
   display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: var(--color-4);
+  height: 20rem;
+
+  background-image: url('../public/images/heros/hero-image_2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 60%;
 }
 
-.hero > img {
-  width: 100%;
-  opacity: 80%;
-  height: auto;
+.parallax__inner {
+  margin: 2rem;
+  padding: 3rem 2rem;
+}
+
+.parallax__inner > h2 {
+  color: var(--color-1);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.parallax__inner > p {
+  color: var(--color-1);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .section {
