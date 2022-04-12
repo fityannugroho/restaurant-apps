@@ -122,10 +122,12 @@ h2 {
   overflow: hidden !important;
   display: flex;
   align-items: center;
+  background-color: var(--color-4);
 }
 
 .hero > img {
   width: 100%;
+  opacity: 80%;
   height: auto;
 }
 
