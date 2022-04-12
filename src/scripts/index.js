@@ -3,7 +3,6 @@ import '../styles/main.css';
 import './components/restaurant-list';
 import data from '../DATA.json';
 
-const { restaurants } = data;
 const navToggle = document.querySelector('#navToggle');
 const navList = document.querySelector('.nav__list');
 const main = document.querySelector('main');
@@ -17,5 +16,6 @@ main.addEventListener('click', () => {
 });
 
 // Render the restaurant list.
+const { restaurants } = data;
 const restaurantList = document.querySelector('restaurant-list');
 restaurantList.restaurants = restaurants;
