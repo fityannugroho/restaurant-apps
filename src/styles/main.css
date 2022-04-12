@@ -24,6 +24,20 @@ a, button {
   min-height: 44px;
 }
 
+.skip-link {
+  position: fixed;
+  top: -44px;
+  left: 0;
+  background-color: var(--color-4);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 .wrapper {
   padding-left: 2rem;
   padding-right: 2rem;
