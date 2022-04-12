@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+  --color-1: #FDFAF6;
+  --color-2: #FAF1E6;
+  --color-3: #E4EFE7;
+  --color-4: #064420;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  font-family: 'Lato', 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+a, button {
+  min-height: 44px;
+}
+
+.wrapper {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: inline;
+}
+
+.nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  min-height: 70px;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-1);
+  color: var(--color-4);
+  border-bottom: 1px solid var(--color-2);
+}
+
+.nav__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav__logo > h1 {
+  font-size: 1.25rem;
+}
+
+.nav__list {
+  list-style: none;
+}
+
+.nav__item > a {
+  color: var(--color-4);
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  display: block;
+}
+
+.nav__item > a:focus {
+  outline: 1px solid var(--color-4);
+}
+
+.nav__toggle {
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__toggle:focus {
+  outline: 1px solid var(--color-4);
+}
+
+main {
+  padding: 2rem 1rem;
+}
+
+.hero {
+  width: 100%;
+  max-height: 16rem;
+  overflow: hidden !important;
+  display: flex;
+  align-items: center;
+}
+
+.hero > img {
+  width: 100%;
+  height: auto;
+}
+
+.explore > h2 {
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.restaurants {
+  margin-top: 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.restaurant-item {
+  width: 100%;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.restaurant-item__header {
+  display: block;
+  position: relative;
+}
+
+.restaurant-item__thumbnail {
+  aspect-ratio: 4 / 3;
+}
+
+.restaurant-item__thumbnail::before {
+  display: block;
+  min-height: 160px;
+}
+
+.restaurant-item__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 0.5rem 1rem;
+  background-color: var(--color-3);
+  color: var(--color-4);
+  font-weight: 600;
+
+  position: absolute;
+  top: 1rem;
+  left: 0;
+}
+
+.restaurant-item__content {
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.restaurant-item__content__name {
+  font-size: 1rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+  color: var(--color-4);
+}
+
+.restaurant-item__content__city {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0.5rem;
+  color: var(--color-4);
+}
+
+.restaurant-item__content__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer {
+  background-color: var(--color-3);
+  padding: 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 480px) {
+  .restaurants {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .nav__list {
+    width: 100%;
+    background-color: var(--color-1);
+    position: absolute;
+    top: 70px;
+    left: 0;
+
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav__list.show {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .nav__item {
+    width: 100%;
+    display: list-item;
+    border-bottom: 1px solid var(--color-2);
+  }
+
+  .nav__item > a:hover {
+    background-color: var(--color-2);
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .nav__list {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__item > a:hover {
+    font-weight: 900;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .restaurants {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+  }
+}
