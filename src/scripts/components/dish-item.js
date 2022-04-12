@@ -16,7 +16,7 @@ class DishItem extends HTMLElement {
     this.setAttribute('role', 'listitem');
     this.setAttribute('id', this._dish.idMeal);
     this.innerHTML = `
-      <img class="dish-item__thumbnail" src="${this._dish.strMealThumb}" alt="${this._dish.strMeal} Picture">
+      <img class="dish-item__thumbnail" src="${this._dish.strMealThumb}" alt="Dish ${this._dish.strMeal}">
       <div class="dish-item__content">
         <p>${this._dish.strMeal}</p>
       </div>
