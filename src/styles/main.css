@@ -113,7 +113,7 @@ main {
 
 .hero {
   width: 100%;
-  max-height: 16rem;
+  max-height: 18rem;
   overflow: hidden !important;
   display: flex;
   align-items: center;
