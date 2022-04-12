@@ -21,16 +21,16 @@ class RestaurantItem extends HTMLElement {
     this.innerHTML = `
       <section class="restaurant-item__header">
         <img class="restaurant-item__thumbnail" src="${this._restaurant.pictureId}" alt="${this._restaurant.name} thumbnail" width="100%">
-        <span class="restaurant-item__rating" title="Rating">
-          <i class="fa-solid fa-star" role="img">Rating:</i>
-          ${this._restaurant.rating}
-        </span>
+        <div class="restaurant-item__rating">
+          <i class="fa-solid fa-star"></i>
+          <p title="Rating">${this._restaurant.rating}</p>
+        </div>
       </section>
       <section class="restaurant-item__content">
         <p class="restaurant-item__content__name">${this._restaurant.name}</p>
         <div class="restaurant-item__content__city">
-          <i class="fa-solid fa-location-dot" role="img">Location:</i>
-          <span>${this._restaurant.city}</span>
+          <i class="fa-solid fa-location-dot"></i>
+          <p title="Location">${this._restaurant.city}</p>
         </div>
         <p class="restaurant-item__content__description">${this._restaurant.description}</p>
       </section>
