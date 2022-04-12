@@ -29,13 +29,15 @@ restaurantList.restaurants = restaurants;
 // ============================================================
 // Render the dish list.
 // ============================================================
+const dishList = document.querySelector('dish-list');
+
 (async () => {
   try {
     const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=French');
     const { meals } = await response.json();
-    const dishList = document.querySelector('dish-list');
     dishList.dishes = meals;
   } catch (error) {
+    dishList.renderError();
     console.error(error);
   }
 })();
