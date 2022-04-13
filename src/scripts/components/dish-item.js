@@ -13,6 +13,7 @@ class DishItem extends HTMLElement {
 
   render() {
     this.classList.add('dish-item');
+    this.setAttribute('tabindex', '0');
     this.setAttribute('role', 'listitem');
     this.setAttribute('id', this._dish.idMeal);
     this.innerHTML = `

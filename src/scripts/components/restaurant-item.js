@@ -15,6 +15,7 @@ class RestaurantItem extends HTMLElement {
   }
 
   render() {
+    this.setAttribute('tabindex', '0');
     this.setAttribute('role', 'listitem');
     this.setAttribute('id', this._restaurant.id);
     this.classList.add('restaurant-item');

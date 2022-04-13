@@ -177,6 +177,15 @@ h2 {
   background-color: var(--color-0);
 }
 
+.restaurant-item:hover {
+  background-color: var(--color-1);
+}
+
+.restaurant-item:focus {
+  outline: 2px solid var(--color-4);
+  background-color: var(--color-1);
+}
+
 .restaurant-item__header {
   display: block;
   position: relative;
@@ -248,6 +257,15 @@ h2 {
   overflow: hidden;
   background-color: var(--color-0);
   color: var(--color-4);
+}
+
+.dish-item:hover {
+  background-color: var(--color-1);
+}
+
+.dish-item:focus {
+  outline: 2px solid var(--color-4);
+  background-color: var(--color-1);
 }
 
 .dish-item__thumbnail {
