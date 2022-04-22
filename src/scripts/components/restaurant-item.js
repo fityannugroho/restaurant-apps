@@ -1,3 +1,5 @@
+import API_ENDPOINT from '../globals/restaurant-api-endpoint';
+
 class RestaurantItem extends HTMLElement {
   /**
    * @param {{
@@ -21,7 +23,7 @@ class RestaurantItem extends HTMLElement {
     this.classList.add('restaurant-item');
     this.innerHTML = `
       <section class="restaurant-item__header">
-        <img class="restaurant-item__thumbnail" src="${this._restaurant.pictureId}" alt="Restaurant ${this._restaurant.name}" width="100%">
+        <img class="restaurant-item__thumbnail" src="${API_ENDPOINT.RESTAURANT_PICTURE('medium', this._restaurant.pictureId)}" alt="Restaurant ${this._restaurant.name}" width="100%">
         <div class="restaurant-item__rating">
           <i class="fa-solid fa-star"></i>
           <p title="Rating">${this._restaurant.rating}</p>
