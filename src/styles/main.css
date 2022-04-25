@@ -113,10 +113,6 @@ a, button {
   outline: 1px solid var(--color-4);
 }
 
-main {
-  padding: 0 1rem;
-}
-
 h2 {
   text-align: center;
   font-size: 1.75rem;
