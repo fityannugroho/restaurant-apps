@@ -2,7 +2,7 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import './components/restaurant-list';
 import './components/dish-list';
-import data from '../DATA.json';
+import RestaurantSource from './data/restaurant-source';
 
 // ============================================================
 // Responsive navbar.
@@ -22,9 +22,10 @@ main.addEventListener('click', () => {
 // ============================================================
 // Render the restaurant list.
 // ============================================================
-const { restaurants } = data;
-const restaurantList = document.querySelector('restaurant-list');
-restaurantList.restaurants = restaurants;
+(async () => {
+  const restaurantList = document.querySelector('restaurant-list');
+  restaurantList.restaurants = await RestaurantSource.getRestaurants();
+})();
 
 // ============================================================
 // Render the dish list.
