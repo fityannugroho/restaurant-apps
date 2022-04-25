@@ -3,20 +3,12 @@ import '../styles/main.css';
 import './components/restaurant-list';
 import './components/dish-list';
 import RestaurantSource from './data/restaurant-source';
+import App from './views/app';
 
-// ============================================================
-// Responsive navbar.
-// ============================================================
-const navToggle = document.querySelector('#navToggle');
-const navList = document.querySelector('.nav__list');
-const main = document.querySelector('main');
-
-navToggle.addEventListener('click', () => {
-  navList.classList.toggle('show');
-});
-
-main.addEventListener('click', () => {
-  navList.classList.remove('show');
+const app = new App({
+  button: document.querySelector('#navToggle'),
+  drawer: document.querySelector('#navDrawer'),
+  content: document.querySelector('#main'),
 });
 
 // ============================================================
