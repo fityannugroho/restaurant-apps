@@ -175,6 +175,7 @@ h2 {
   border-radius: 6px;
   overflow: hidden;
   background-color: var(--color-0);
+  cursor: pointer;
 }
 
 .restaurant-item:hover {
