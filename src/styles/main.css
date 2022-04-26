@@ -307,6 +307,8 @@ h2 {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  margin: 0 auto;
+  max-width: 360px;
 }
 
 .restaurant-detail__title {
@@ -463,11 +465,6 @@ h2 {
   .nav__item > a:hover {
     background-color: var(--color-2);
   }
-
-  .restaurant-detail {
-    grid-template-columns: 0.6fr 1fr;
-    gap: 2rem;
-  }
 }
 
 @media screen and (min-width: 720px) {
@@ -475,10 +472,24 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1.5rem;
   }
+
+  .restaurant-detail {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .restaurant-detail__thumbnail {
+    max-width: none;
+  }
 }
 
 @media screen and (min-width: 1000px) {
   .dishes {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .restaurant-detail {
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 2rem;
   }
 }
