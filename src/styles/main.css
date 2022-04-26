@@ -368,6 +368,45 @@ h2 {
   border-radius: 0.5rem;
 }
 
+.menus__title {
+  color: var(--color-4);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.menus__subtitle {
+  color: var(--color-4);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.menus__subtitle::after {
+  content: '';
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: var(--color-4);
+  margin-top: 0.25rem;
+}
+
+.menus__content__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.menu-item {
+  width: 100%;
+  box-shadow: 0 1px 4px 0 var(--color-3);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--color-0);
+  color: var(--color-5);
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
 @media screen and (min-width: 480px) {
   .restaurants, .dishes {
     grid-template-columns: repeat(2, 1fr);
@@ -376,6 +415,10 @@ h2 {
 
   .restaurant-detail__table tr {
     grid-template-columns: 0.3fr 0.7fr;
+  }
+
+  .menus__content__list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -441,6 +484,10 @@ h2 {
 
   .restaurant-detail__thumbnail {
     max-width: none;
+  }
+
+  .menus__content__list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

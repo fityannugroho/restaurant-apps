@@ -42,4 +42,10 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
 `;
 
-export { createRestaurantDetailTemplate };
+const createMenuItemTemplate = (menu) => `
+  <article class="menu-item">
+    <span class="menu-item__name">${menu.name}</span>
+  </article>
+`;
+
+export { createRestaurantDetailTemplate, createMenuItemTemplate };
