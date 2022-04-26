@@ -48,4 +48,14 @@ const createMenuItemTemplate = (menu) => `
   </article>
 `;
 
-export { createRestaurantDetailTemplate, createMenuItemTemplate };
+const createCustomerReviewTemplate = (customerReview) => `
+  <article class="review-item">
+    <div class="review-item__header">
+      <strong class="review-item__name">${customerReview.name}</strong>
+      <span class="review-item__date">${customerReview.date}</span>
+    </div>
+    <p class="review-item__content">${customerReview.review}</p>
+  </article>
+`;
+
+export { createRestaurantDetailTemplate, createMenuItemTemplate, createCustomerReviewTemplate };

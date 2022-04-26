@@ -1,4 +1,4 @@
-import { createMenuItemTemplate, createRestaurantDetailTemplate } from '../../../templates/template-creator';
+import { createCustomerReviewTemplate, createMenuItemTemplate, createRestaurantDetailTemplate } from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 
@@ -14,6 +14,10 @@ const DetailRestaurant = {
             <div id="foodMenus" class="menus__content__list"></div>
             <h4 class="menus__subtitle">Drinks</h4>
             <div id="drinkMenus" class="menus__content__list"></div>
+          </section>
+          <section class="reviews">
+            <h3 class="reviews__title">What Customer Say</h3>
+            <div id="reviews" class="reviews__list"></div>
           </section>
         </div>
       </div>
@@ -33,6 +37,9 @@ const DetailRestaurant = {
 
     foodMenusContainer.innerHTML = foods.map(createMenuItemTemplate).join('');
     drinkMenusContainer.innerHTML = drinks.map(createMenuItemTemplate).join('');
+
+    const reviewsContainer = document.querySelector('#reviews');
+    reviewsContainer.innerHTML = restaurant.customerReviews.map(createCustomerReviewTemplate).join('');
   },
 };
 

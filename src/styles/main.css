@@ -368,7 +368,7 @@ h2 {
   border-radius: 0.5rem;
 }
 
-.menus__title {
+.menus__title, .reviews__title {
   color: var(--color-4);
   font-size: 1.5rem;
   text-align: center;
@@ -407,6 +407,39 @@ h2 {
   text-align: center;
 }
 
+.reviews__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.review-item {
+  width: 100%;
+  box-shadow: 0 1px 4px 0 var(--color-3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  color: var(--color-5);
+  padding: 0.75rem 1rem;
+}
+
+.review-item__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.review-item__name {
+  font-size: 0.75rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+
+.review-item__date {
+  text-align: end;
+}
+
 @media screen and (min-width: 480px) {
   .restaurants, .dishes {
     grid-template-columns: repeat(2, 1fr);
@@ -419,6 +452,10 @@ h2 {
 
   .menus__content__list {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .reviews__list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -484,6 +521,10 @@ h2 {
 
   .restaurant-detail__thumbnail {
     max-width: none;
+  }
+
+  .reviews__list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .menus__content__list {
