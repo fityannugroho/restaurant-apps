@@ -6,7 +6,9 @@ const DetailRestaurant = {
   async render() {
     return `
       <div class="content">
-        <section id="restaurant" class="restaurant-detail wrapper"></section>
+        <div class="wrapper">
+          <section id="restaurant" class="restaurant-detail"></section>
+        </div>
       </div>
     `;
   },
