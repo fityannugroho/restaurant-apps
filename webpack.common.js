@@ -73,10 +73,19 @@ module.exports = {
       ],
     }),
     new WorkboxWebpackPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
       cleanupOutdatedCaches: true,
       runtimeCaching: [
+        {
+          urlPattern: ({ request }) => request.destination === 'image',
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'image-cache',
+            expiration: {
+              purgeOnQuotaError: true,
+              maxEntries: 10,
+            },
+          },
+        },
         {
           urlPattern: ({ request }) => !!request,
           handler: 'StaleWhileRevalidate',
