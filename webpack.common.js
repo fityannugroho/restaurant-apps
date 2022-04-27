@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -59,13 +60,35 @@ module.exports = {
         {
           src: path.resolve('src/public/images/logo/icon-192x192.png'),
           sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('icons'),
           purpose: 'any',
         },
         {
           src: path.resolve('src/public/images/logo/icon-192x192.png'),
           sizes: [57, 60, 72, 76, 114, 120, 144, 152, 180],
+          destination: path.join('icons'),
           purpose: 'any',
           ios: true,
+        },
+      ],
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      cleanupOutdatedCaches: true,
+      runtimeCaching: [
+        {
+          urlPattern: ({ request }) => request.destination === 'image',
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'image-cache',
+            expiration: {
+              purgeOnQuotaError: true,
+              maxEntries: 10,
+            },
+          },
+        },
+        {
+          urlPattern: ({ request }) => !!request,
+          handler: 'StaleWhileRevalidate',
         },
       ],
     }),
