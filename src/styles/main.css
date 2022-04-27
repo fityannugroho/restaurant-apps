@@ -33,14 +33,23 @@ a, button {
   position: fixed;
   top: -44px;
   left: 0;
-  background-color: var(--color-4);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-3);
   color: white;
   padding: 8px;
+  font-weight: bold;
   z-index: 100;
+  cursor: pointer;
+}
+
+.skip-link:hover {
+  text-decoration: underline;
 }
 
 .skip-link:focus {
   top: 0;
+  outline: 2px solid var(--color-4);
 }
 
 .wrapper {

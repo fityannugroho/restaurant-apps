@@ -19,3 +19,11 @@ window.addEventListener('load', () => {
   app.renderPage();
   serviceWorkerRegister();
 });
+
+const skipToContent = document.querySelector('.skip-link');
+skipToContent.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    app.setFocusOnContent();
+  }
+});
+skipToContent.addEventListener('click', () => app.setFocusOnContent());
