@@ -76,6 +76,12 @@ module.exports = {
       clientsClaim: true,
       skipWaiting: true,
       cleanupOutdatedCaches: true,
+      runtimeCaching: [
+        {
+          urlPattern: ({ request }) => !!request,
+          handler: 'StaleWhileRevalidate',
+        },
+      ],
     }),
   ],
 };
