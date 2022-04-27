@@ -3,6 +3,7 @@ import '../styles/main.css';
 import './components/restaurant-list';
 import './components/dish-list';
 import App from './views/app';
+import serviceWorkerRegister from './utils/service-worker-register';
 
 const app = new App({
   button: document.querySelector('#navToggle'),
@@ -16,4 +17,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  serviceWorkerRegister();
 });
