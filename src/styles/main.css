@@ -153,7 +153,7 @@ h2 {
 }
 
 .section {
-  margin: 2rem 0;
+  padding: 1rem 0;
 }
 
 .section__title {
@@ -161,7 +161,7 @@ h2 {
 }
 
 .restaurants {
-  margin-top: 1.5rem;
+  padding: 1.5rem 0;
 
   display: grid;
   grid-template-columns: 1fr;
