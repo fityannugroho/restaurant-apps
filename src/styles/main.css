@@ -33,14 +33,23 @@ a, button {
   position: fixed;
   top: -44px;
   left: 0;
-  background-color: var(--color-4);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-3);
   color: white;
   padding: 8px;
+  font-weight: bold;
   z-index: 100;
+  cursor: pointer;
+}
+
+.skip-link:hover {
+  text-decoration: underline;
 }
 
 .skip-link:focus {
   top: 0;
+  outline: 2px solid var(--color-4);
 }
 
 .wrapper {
@@ -153,7 +162,7 @@ h2 {
 }
 
 .section {
-  margin: 2rem 0;
+  padding: 1rem 0;
 }
 
 .section__title {
@@ -161,7 +170,7 @@ h2 {
 }
 
 .restaurants {
-  margin-top: 1.5rem;
+  padding: 1.5rem 0;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -438,6 +447,25 @@ h2 {
 
 .review-item__date {
   text-align: end;
+}
+
+.favorite-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  background-color: var(--color-3);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-button:focus {
+  outline: 2px solid var(--color-4);
 }
 
 @media screen and (min-width: 480px) {
