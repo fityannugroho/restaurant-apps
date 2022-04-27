@@ -440,6 +440,25 @@ h2 {
   text-align: end;
 }
 
+.favorite-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  background-color: var(--color-3);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-button:focus {
+  outline: 2px solid var(--color-4);
+}
+
 @media screen and (min-width: 480px) {
   .restaurants, .dishes {
     grid-template-columns: repeat(2, 1fr);

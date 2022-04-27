@@ -1,12 +1,18 @@
-import { createCustomerReviewTemplate, createMenuItemTemplate, createRestaurantDetailTemplate } from '../../../templates/template-creator';
+import {
+  createCustomerReviewTemplate,
+  createMenuItemTemplate,
+  createRestaurantDetailTemplate,
+} from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
+import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 
 const DetailRestaurant = {
   async render() {
     return `
       <div class="content">
         <div class="wrapper">
+          <div id="favoriteButtonContainer"></div>
           <section id="restaurant" class="restaurant-detail"></section>
           <section class="menus">
             <h3 class="menus__title">Menus</h3>
@@ -40,6 +46,18 @@ const DetailRestaurant = {
 
     const reviewsContainer = document.querySelector('#reviews');
     reviewsContainer.innerHTML = restaurant.customerReviews.map(createCustomerReviewTemplate).join('');
+
+    FavoriteButtonInitiator.init({
+      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+      restaurant: {
+        id: restaurant.id,
+        name: restaurant.name,
+        description: restaurant.description,
+        pictureId: restaurant.pictureId,
+        city: restaurant.city,
+        rating: restaurant.rating,
+      },
+    });
   },
 };
 
