@@ -59,11 +59,13 @@ module.exports = {
         {
           src: path.resolve('src/public/images/logo/icon-192x192.png'),
           sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('icons'),
           purpose: 'any',
         },
         {
           src: path.resolve('src/public/images/logo/icon-192x192.png'),
           sizes: [57, 60, 72, 76, 114, 120, 144, 152, 180],
+          destination: path.join('icons'),
           purpose: 'any',
           ios: true,
         },
