@@ -16,6 +16,20 @@ class RestaurantItem extends HTMLElement {
     this.render();
   }
 
+  _goToDetailPage() {
+    const detailPageRoute = '#/restaurants/';
+    window.open(detailPageRoute + this._restaurant.id, '_self');
+  }
+
+  _renderGoToDetailPageEvent() {
+    this.addEventListener('click', this._goToDetailPage);
+    this.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        this._goToDetailPage();
+      }
+    });
+  }
+
   render() {
     this.setAttribute('tabindex', '0');
     this.setAttribute('role', 'listitem');
@@ -38,6 +52,8 @@ class RestaurantItem extends HTMLElement {
         <p class="restaurant-item__content__description">${this._restaurant.description}</p>
       </section>
     `;
+
+    this._renderGoToDetailPageEvent();
   }
 }
 

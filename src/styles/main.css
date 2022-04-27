@@ -44,8 +44,8 @@ a, button {
 }
 
 .wrapper {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -61,7 +61,6 @@ a, button {
   z-index: 10;
   min-height: 56px;
   width: 100%;
-  padding: 0 1rem;
   background-color: var(--color-1);
   color: var(--color-4);
   box-shadow: 0 1px 6px 0 var(--color-3);
@@ -111,10 +110,6 @@ a, button {
 
 .nav__toggle:focus {
   outline: 1px solid var(--color-4);
-}
-
-main {
-  padding: 0 1rem;
 }
 
 h2 {
@@ -179,6 +174,7 @@ h2 {
   border-radius: 6px;
   overflow: hidden;
   background-color: var(--color-0);
+  cursor: pointer;
 }
 
 .restaurant-item:hover {
@@ -295,10 +291,171 @@ h2 {
   color: var(--color-4);
 }
 
+.content {
+  background-color: white;
+}
+
+.restaurant-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  padding: 1.5rem 0;
+}
+
+.restaurant-detail__thumbnail {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 360px;
+}
+
+.restaurant-detail__title {
+  color: var(--color-4);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.restaurant-detail__table tr {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+
+.restaurant-detail__table tr th,
+.restaurant-detail__table tr td {
+  color: var(--color-4);
+  text-align: start;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.restaurant-detail__table tr th {
+  font-size: 1rem;
+}
+
+.restaurant-detail__table tr th > svg {
+  width: 1rem;
+  overflow: hidden;
+}
+
+.restaurant-detail__table tr td {
+  font-size: 0.875rem;
+}
+
+.restaurant-detail__description {
+  color: var(--color-5);
+  margin-top: 1rem;
+}
+
+.restaurant-detail__category {
+  display: inline-block;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  color: white;
+  background-color: var(--color-4);
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.menus__title, .reviews__title {
+  color: var(--color-4);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.menus__subtitle {
+  color: var(--color-4);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.menus__subtitle::after {
+  content: '';
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: var(--color-4);
+  margin-top: 0.25rem;
+}
+
+.menus__content__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.menu-item {
+  width: 100%;
+  box-shadow: 0 1px 4px 0 var(--color-3);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--color-0);
+  color: var(--color-5);
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.reviews__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.review-item {
+  width: 100%;
+  box-shadow: 0 1px 4px 0 var(--color-3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  color: var(--color-5);
+  padding: 0.75rem 1rem;
+}
+
+.review-item__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.review-item__name {
+  font-size: 0.75rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+
+.review-item__date {
+  text-align: end;
+}
+
 @media screen and (min-width: 480px) {
   .restaurants, .dishes {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 2rem;
+  }
+
+  .restaurant-detail__table tr {
+    grid-template-columns: 0.3fr 0.7fr;
+  }
+
+  .menus__content__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .reviews__list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -332,6 +489,11 @@ h2 {
 }
 
 @media screen and (min-width: 560px) {
+  .wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .nav__list {
     display: flex;
     gap: 0.5rem;
@@ -351,10 +513,32 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1.5rem;
   }
+
+  .restaurant-detail {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .restaurant-detail__thumbnail {
+    max-width: none;
+  }
+
+  .reviews__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .menus__content__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media screen and (min-width: 1000px) {
   .dishes {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .restaurant-detail {
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 2rem;
   }
 }
