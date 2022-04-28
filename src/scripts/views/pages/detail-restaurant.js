@@ -46,9 +46,11 @@ const DetailRestaurant = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSource.getRestaurant(url.id);
 
+    // Render restaurant detail.
     const restaurantContainer = document.querySelector('#restaurant');
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
 
+    // Render menus.
     const foodMenusContainer = document.querySelector('#foodMenus');
     const drinkMenusContainer = document.querySelector('#drinkMenus');
     const { foods, drinks } = restaurant.menus;
@@ -56,9 +58,10 @@ const DetailRestaurant = {
     foodMenusContainer.innerHTML = foods.map(createMenuItemTemplate).join('');
     drinkMenusContainer.innerHTML = drinks.map(createMenuItemTemplate).join('');
 
-    const reviewsContainer = document.querySelector('#reviews');
-    reviewsContainer.innerHTML = restaurant.customerReviews.map(createCustomerReviewTemplate).join('');
+    // Render reviews.
+    this._renderCustomerReviews(restaurant.customerReviews);
 
+    // Render favorite button.
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
       restaurant: {
@@ -70,6 +73,29 @@ const DetailRestaurant = {
         rating: restaurant.rating,
       },
     });
+
+    // Add event listener to review form.
+    const reviewForm = document.querySelector('#reviewForm');
+    reviewForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const review = {
+        id: restaurant.id,
+        name: reviewForm.name.value,
+        review: reviewForm.review.value,
+      };
+
+      const updatedCustomerReviews = await RestaurantSource.postReview(review);
+      if (updatedCustomerReviews) {
+        this._renderCustomerReviews(updatedCustomerReviews);
+        reviewForm.reset();
+      }
+    });
+  },
+
+  _renderCustomerReviews(customerReviews) {
+    const reviewsContainer = document.querySelector('#reviews');
+    reviewsContainer.innerHTML = customerReviews.map(createCustomerReviewTemplate).join('');
   },
 };
 
