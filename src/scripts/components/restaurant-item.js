@@ -40,7 +40,7 @@ class RestaurantItem extends HTMLElement {
         <img class="restaurant-item__thumbnail" src="${API_ENDPOINT.RESTAURANT_PICTURE('small', this._restaurant.pictureId)}" alt="Restaurant ${this._restaurant.name}" width="100%">
         <div class="restaurant-item__rating">
           <i class="fa-solid fa-star"></i>
-          <p title="Rating">${this._restaurant.rating}</p>
+          <p title="Rating">${(this._restaurant.rating).toPrecision(2)}</p>
         </div>
       </section>
       <section class="restaurant-item__content">
