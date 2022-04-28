@@ -1,7 +1,6 @@
 import {
   createCustomerReviewTemplate,
   createMenuItemTemplate,
-  createRestaurantDetailTemplate,
 } from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
@@ -13,7 +12,7 @@ const DetailRestaurant = {
       <div class="content">
         <div class="wrapper">
           <div id="favoriteButtonContainer"></div>
-          <section id="restaurant" class="restaurant-detail"></section>
+          <restaurant-detail></restaurant-detail>
           <section class="menus">
             <h3 class="menus__title">Menus</h3>
             <h4 class="menus__subtitle">Foods</h4>
@@ -47,8 +46,8 @@ const DetailRestaurant = {
     const restaurant = await RestaurantSource.getRestaurant(url.id);
 
     // Render restaurant detail.
-    const restaurantContainer = document.querySelector('#restaurant');
-    restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+    const restaurantDetail = document.querySelector('restaurant-detail');
+    restaurantDetail.restaurant = restaurant;
 
     // Render menus.
     const foodMenusContainer = document.querySelector('#foodMenus');

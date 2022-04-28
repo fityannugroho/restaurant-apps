@@ -275,7 +275,7 @@ restaurant-item:focus {
   background-color: white;
 }
 
-.restaurant-detail {
+restaurant-detail {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -578,7 +578,7 @@ restaurant-item:focus {
     column-gap: 1.5rem;
   }
 
-  .restaurant-detail {
+  restaurant-detail {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
@@ -597,7 +597,7 @@ restaurant-item:focus {
 }
 
 @media screen and (min-width: 1000px) {
-  .restaurant-detail {
+  restaurant-detail {
     grid-template-columns: 0.4fr 0.6fr;
     gap: 2rem;
   }
