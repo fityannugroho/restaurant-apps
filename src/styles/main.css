@@ -387,7 +387,7 @@ menu-item {
   text-align: center;
 }
 
-.reviews__list {
+review-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -395,7 +395,7 @@ menu-item {
   margin-top: 1rem;
 }
 
-.review-item {
+review-item {
   width: 100%;
   box-shadow: 0 1px 4px 0 var(--color-3);
   border-radius: 0.25rem;
@@ -518,7 +518,7 @@ menu-item {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .reviews__list {
+  review-list {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -587,7 +587,7 @@ menu-item {
     max-width: none;
   }
 
-  .reviews__list {
+  review-list {
     grid-template-columns: repeat(3, 1fr);
   }
 

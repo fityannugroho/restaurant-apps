@@ -1,6 +1,3 @@
-import {
-  createCustomerReviewTemplate,
-} from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
@@ -21,7 +18,7 @@ const DetailRestaurant = {
           </section>
           <section class="reviews">
             <h3 class="reviews__title">What Customer Say</h3>
-            <div id="reviews" class="reviews__list"></div>
+            <review-list></review-list>
             <h4 class="reviews__subtitle">Write a Review</h4>
             <form id="reviewForm" class="reviews__form">
               <div class="reviews__form__field">
@@ -92,8 +89,8 @@ const DetailRestaurant = {
   },
 
   _renderCustomerReviews(customerReviews) {
-    const reviewsContainer = document.querySelector('#reviews');
-    reviewsContainer.innerHTML = customerReviews.map(createCustomerReviewTemplate).join('');
+    const reviewList = document.querySelector('review-list');
+    reviewList.reviews = customerReviews;
   },
 };
 

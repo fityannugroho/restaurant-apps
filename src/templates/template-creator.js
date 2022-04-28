@@ -1,13 +1,3 @@
-const createCustomerReviewTemplate = (customerReview) => `
-  <article class="review-item">
-    <div class="review-item__header">
-      <strong class="review-item__name">${customerReview.name}</strong>
-      <span class="review-item__date">${customerReview.date}</span>
-    </div>
-    <p class="review-item__content">${customerReview.review}</p>
-  </article>
-`;
-
 const createFavoriteButtonTemplate = () => `
   <button aria-label="Favorite this restaurant" title="Favorite this restaurant" id="favoriteButton" class="favorite-button">
     <i class="fa-regular fa-heart"></i>
@@ -21,7 +11,6 @@ const createFavoritedButtonTemplate = () => `
 `;
 
 export {
-  createCustomerReviewTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
 };
