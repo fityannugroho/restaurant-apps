@@ -24,6 +24,18 @@ const DetailRestaurant = {
           <section class="reviews">
             <h3 class="reviews__title">What Customer Say</h3>
             <div id="reviews" class="reviews__list"></div>
+            <h4 class="reviews__subtitle">Write a Review</h4>
+            <form id="reviewForm" class="reviews__form">
+              <div class="reviews__form__field">
+                <label class="reviews__form__label" for="name">Your name</label>
+                <input class="reviews__form__input" type="text" id="name" name="name" placeholder="My name is..." required>
+              </div>
+              <div class="reviews__form__field">
+                <label class="reviews__form__label" for="review">What do you think about this restaurant?</label>
+                <input class="reviews__form__input" type="text" id="review" name="review" placeholder="I think..." required>
+              </div>
+              <button class="reviews__form__submit" type="submit">Send My Review</button>
+            </form>
           </section>
         </div>
       </div>
