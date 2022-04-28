@@ -7,7 +7,7 @@ const FavoriteRestaurants = {
         <div class="wrapper">
           <section class="section">
             <h2 class="section__title">My Favorite Restaurant</h2>
-            <restaurant-list class="restaurants"></restaurant-list>
+            <restaurant-list></restaurant-list>
           </section>
         </div>
       </div>
@@ -16,7 +16,13 @@ const FavoriteRestaurants = {
 
   async afterRender() {
     const restaurantList = document.querySelector('restaurant-list');
-    restaurantList.restaurants = await FavoriteRestaurantIdb.getAll();
+    const restaurants = await FavoriteRestaurantIdb.getAll();
+
+    if (restaurants.length === 0) {
+      restaurantList.renderError('You don\'t favorite any restaurant yet.');
+    } else {
+      restaurantList.restaurants = restaurants;
+    }
   },
 };
 

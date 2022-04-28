@@ -12,7 +12,7 @@ const Home = {
       <div class="wrapper">
         <section class="section">
           <h2 class="section__title">Explore Restaurant</h2>
-          <restaurant-list class="restaurants"></restaurant-list>
+          <restaurant-list></restaurant-list>
         </section>
         <section class="section">
           <h2 class="section__title">Explore Dish</h2>
@@ -25,7 +25,13 @@ const Home = {
   async afterRender() {
     // Render the restaurant list.
     const restaurantList = document.querySelector('restaurant-list');
-    restaurantList.restaurants = await RestaurantSource.getRestaurants();
+    const restaurants = await RestaurantSource.getRestaurants();
+
+    if (restaurants.length === 0) {
+      restaurantList.renderError('Something went wrong while getting the restaurants.');
+    } else {
+      restaurantList.restaurants = restaurants;
+    }
 
     // Render the dish list.
     const dishList = document.querySelector('dish-list');

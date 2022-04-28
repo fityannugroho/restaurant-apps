@@ -17,6 +17,13 @@ class RestaurantList extends HTMLElement {
       this.appendChild(restaurantItem);
     });
   }
+
+  renderError(message) {
+    this.classList.add('error');
+    this.innerHTML = `
+      <p>${message}</p>
+    `;
+  }
 }
 
 customElements.define('restaurant-list', RestaurantList);

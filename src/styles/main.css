@@ -169,12 +169,24 @@ h2 {
   color: var(--color-4);
 }
 
-.restaurants {
-  padding: 1.5rem 0;
+restaurant-list {
+  margin: 1.5rem 0;
 
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+restaurant-list.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  background-color: var(--color-0);
+  border: 1px solid var(--color-4);
+  color: var(--color-4);
+  padding: 1rem;
 }
 
 .restaurant-item {
@@ -469,7 +481,7 @@ h2 {
 }
 
 @media screen and (min-width: 480px) {
-  .restaurants, .dishes {
+  restaurant-list, .dishes {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 2rem;
   }
@@ -537,7 +549,7 @@ h2 {
 }
 
 @media screen and (min-width: 720px) {
-  .restaurants, .dishes {
+  restaurant-list, .dishes {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1.5rem;
   }
