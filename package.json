@@ -1,7 +1,7 @@
 {
   "name": "restaurant-apps",
-  "version": "0.2.3",
-  "description": "restaurant apps website for dicoding submission",
+  "version": "0.3.0",
+  "description": "the restaurant web apps",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
