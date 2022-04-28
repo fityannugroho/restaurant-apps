@@ -34,7 +34,6 @@ class RestaurantItem extends HTMLElement {
     this.setAttribute('tabindex', '0');
     this.setAttribute('role', 'listitem');
     this.setAttribute('id', this._restaurant.id);
-    this.classList.add('restaurant-item');
     this.innerHTML = `
       <section class="restaurant-item__header">
         <img class="restaurant-item__thumbnail" src="${API_ENDPOINT.RESTAURANT_PICTURE('small', this._restaurant.pictureId)}" alt="Restaurant ${this._restaurant.name}" width="100%">
