@@ -1,9 +1,3 @@
-const createMenuItemTemplate = (menu) => `
-  <article class="menu-item">
-    <span class="menu-item__name">${menu.name}</span>
-  </article>
-`;
-
 const createCustomerReviewTemplate = (customerReview) => `
   <article class="review-item">
     <div class="review-item__header">
@@ -27,7 +21,6 @@ const createFavoritedButtonTemplate = () => `
 `;
 
 export {
-  createMenuItemTemplate,
   createCustomerReviewTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,

@@ -1,6 +1,5 @@
 import {
   createCustomerReviewTemplate,
-  createMenuItemTemplate,
 } from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
@@ -16,9 +15,9 @@ const DetailRestaurant = {
           <section class="menus">
             <h3 class="menus__title">Menus</h3>
             <h4 class="menus__subtitle">Foods</h4>
-            <div id="foodMenus" class="menus__content__list"></div>
+            <menu-list id="foods"></menu-list>
             <h4 class="menus__subtitle">Drinks</h4>
-            <div id="drinkMenus" class="menus__content__list"></div>
+            <menu-list id="drinks"></menu-list>
           </section>
           <section class="reviews">
             <h3 class="reviews__title">What Customer Say</h3>
@@ -50,12 +49,12 @@ const DetailRestaurant = {
     restaurantDetail.restaurant = restaurant;
 
     // Render menus.
-    const foodMenusContainer = document.querySelector('#foodMenus');
-    const drinkMenusContainer = document.querySelector('#drinkMenus');
+    const foodList = document.querySelector('menu-list#foods');
+    const drinkList = document.querySelector('menu-list#drinks');
     const { foods, drinks } = restaurant.menus;
 
-    foodMenusContainer.innerHTML = foods.map(createMenuItemTemplate).join('');
-    drinkMenusContainer.innerHTML = drinks.map(createMenuItemTemplate).join('');
+    foodList.menus = foods;
+    drinkList.menus = drinks;
 
     // Render reviews.
     this._renderCustomerReviews(restaurant.customerReviews);
