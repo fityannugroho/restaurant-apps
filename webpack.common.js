@@ -73,6 +73,7 @@ module.exports = {
       ],
     }),
     new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
       cleanupOutdatedCaches: true,
       runtimeCaching: [
         {
