@@ -43,9 +43,9 @@ module.exports = {
       ],
     }),
     new WebpackPwaManifest({
-      name: 'Fresto | Fityan\'s French Restaurant',
+      name: 'Fresto',
       short_name: 'Fresto',
-      description: 'Experience French cuisine in a different restaurant scenes',
+      description: 'Enjoy the fresh dish in the fresh restaurant',
       lang: 'en-US',
       display: 'standalone',
       orientation: 'portrait',

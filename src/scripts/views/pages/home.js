@@ -5,8 +5,8 @@ const Home = {
     return `
       <div class="parallax">
         <div class="parallax__inner">
-          <h2>Fityan's French Restaurant</h2>
-          <p>Experience French cuisine in a different restaurant scenes</p>
+          <h2>The Fresto</h2>
+          <p>Enjoy the fresh dish in the fresh restaurant</p>
         </div>
       </div>
       <div class="wrapper">
