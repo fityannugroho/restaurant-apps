@@ -7,11 +7,17 @@ class ReviewList extends HTMLElement {
   }
 
   _render() {
+    this._resetView();
+    this.setAttribute('role', 'list');
     this._reviews.forEach((review) => {
       const reviewItem = document.createElement('review-item');
       reviewItem.review = review;
       this.appendChild(reviewItem);
     });
+  }
+
+  _resetView() {
+    this.innerHTML = '';
   }
 }
 

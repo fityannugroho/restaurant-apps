@@ -7,11 +7,17 @@ class MenuList extends HTMLElement {
   }
 
   _render() {
+    this._resetView();
+    this.setAttribute('role', 'list');
     this._menus.forEach((menu) => {
       const menuItem = document.createElement('menu-item');
       menuItem.menu = menu;
       this.appendChild(menuItem);
     });
+  }
+
+  _resetView() {
+    this.innerHTML = '';
   }
 }
 
