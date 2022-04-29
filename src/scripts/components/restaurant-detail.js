@@ -12,7 +12,7 @@ class RestaurantDetail extends HTMLElement {
     } = this._restaurant;
 
     this.innerHTML = `
-      <img class="restaurant-detail__thumbnail" src="${RESTAURANT_API_ENDPOINT.RESTAURANT_PICTURE('small', pictureId)}">
+      <img class="restaurant-detail__thumbnail" src="${RESTAURANT_API_ENDPOINT.RESTAURANT_PICTURE('small', pictureId)}" alt="Restaurant ${name}">
       <div class="restaurant-detail__content">
         <h2 class="restaurant-detail__title">${name}</h2>
         <table class="restaurant-detail__table">
