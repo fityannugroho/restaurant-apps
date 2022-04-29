@@ -7,6 +7,7 @@ class ReviewItem extends HTMLElement {
   _render() {
     const { name, date, review } = this._review;
 
+    this.setAttribute('role', 'listitem');
     this.innerHTML = `
       <div class="review-item__header">
         <strong class="review-item__name">${name}</strong>
