@@ -25,7 +25,7 @@ body {
   background-color: whitesmoke;
 }
 
-a, button {
+a, button, input {
   min-height: 44px;
 }
 
