@@ -16,12 +16,15 @@ const FavoriteRestaurants = {
 
   async afterRender() {
     const restaurantList = document.querySelector('restaurant-list');
-    const restaurants = await FavoriteRestaurantIdb.getAll();
-
-    if (restaurants.length === 0) {
-      restaurantList.renderError('You don\'t favorite any restaurant yet.');
-    } else {
-      restaurantList.restaurants = restaurants;
+    try {
+      const restaurants = await FavoriteRestaurantIdb.getAll();
+      if (restaurants.length === 0) {
+        restaurantList.renderMessage('You don\'t favorite any restaurant yet.');
+      } else {
+        restaurantList.restaurants = restaurants;
+      }
+    } catch (error) {
+      restaurantList.renderMessage('Something went wrong while getting your favorite restaurants.');
     }
   },
 };
