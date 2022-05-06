@@ -1,6 +1,6 @@
 {
   "name": "restaurant-apps",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "the restaurant web apps",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "karma-webpack": "^5.0.0",
     "style-loader": "^1.3.0",
     "webpack": "^5.72.0",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1",
     "webpack-merge": "^5.8.0",
