@@ -1,6 +1,6 @@
 {
   "name": "restaurant-apps",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "the restaurant web apps",
   "main": "index.js",
   "scripts": {
@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "idb": "^7.0.1",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9"
   }
 }
