@@ -2,6 +2,14 @@ const { existsSync, mkdirSync, readdirSync } = require('fs');
 const { resolve } = require('path');
 const ImageResizer = require('./utils/image-resizer');
 
+const resizeImage = (imageResizerConfig) => {
+  ImageResizer
+    .resize(imageResizerConfig)
+    .then((outputInfo) => {
+      console.log(`${outputInfo.fileName} (${outputInfo.width}x${outputInfo.height}) has been created (${outputInfo.size} Byte)`);
+    });
+};
+
 // ================================================================
 // Resize hero images.
 // ================================================================
@@ -13,23 +21,26 @@ if (!existsSync(destinationDir)) {
 }
 
 readdirSync(targetDir).forEach((fileName) => {
-  // Resize the image to 800px wide, with the suffix -large.jpg
-  ImageResizer.resize({
+  const imageResizerConfig = {
     path: `${targetDir}/${fileName}`,
-    width: 800,
     destination: destinationDir,
+  };
+
+  const largeImageConfig = {
+    ...imageResizerConfig,
+    width: 800,
     suffix: '-large',
-  }).then((outputInfo) => {
-    console.log(`Large ${fileName} (${outputInfo.width}x${outputInfo.height}) has been created (${outputInfo.size} Byte).`);
-  });
+  };
+
+  const smallImageConfig = {
+    ...imageResizerConfig,
+    width: 480,
+    suffix: '-small',
+  };
+
+  // Resize the image to 800px wide, with the suffix -large.jpg
+  resizeImage({ ...largeImageConfig, extension: 'jpg' });
 
   // Resize the image to 480px wide, with the suffix -small.jpg
-  ImageResizer.resize({
-    path: `${targetDir}/${fileName}`,
-    width: 480,
-    destination: destinationDir,
-    suffix: '-small',
-  }).then((outputInfo) => {
-    console.log(`Small ${fileName} (${outputInfo.width}x${outputInfo.height}) has been created (${outputInfo.size} Byte).`);
-  });
+  resizeImage({ ...smallImageConfig, extension: 'jpg' });
 });

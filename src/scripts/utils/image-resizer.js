@@ -1,15 +1,24 @@
 const sharp = require('sharp');
 
 const ImageResizer = {
-  resize({
-    path, width, height, destination, suffix,
+  async resize({
+    path, width, height, destination, prefix, suffix, extension,
   }) {
     const { dirPath, fileName, fileExtension } = this._splitFilePath(path);
-    const fileDestination = `${destination || dirPath}/${fileName}${suffix ?? ''}.${fileExtension}`;
+    const newFileName = `${prefix ?? ''}${fileName}${suffix ?? ''}.${extension || fileExtension}`;
+    const fileDestination = `${destination || dirPath}/${newFileName}`;
 
-    return sharp(path)
+    const outputInfo = await sharp(path)
       .resize(width, height)
       .toFile(fileDestination);
+
+    return {
+      ...outputInfo,
+      fileName: newFileName,
+      location: fileDestination,
+      srcName: `${fileName}.${fileExtension}`,
+      srcPath: path,
+    };
   },
 
   _splitFilePath(filePath) {
