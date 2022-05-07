@@ -3,8 +3,13 @@ import RestaurantSource from '../../data/restaurant-source';
 const Home = {
   async render() {
     return `
-      <div class="parallax">
-        <div class="parallax__inner">
+      <div class="hero">
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/heros/hero-image-small.jpg">
+          <source media="(max-width: 900px)" srcset="./images/heros/hero-image-large.jpg">
+          <img class="hero__image" src="./images/heros/hero-image.jpg" alt="Hero">
+        </picture>
+        <div class="hero__inner">
           <h2>The Fresto</h2>
           <p>Enjoy the fresh dish in the fresh restaurant</p>
         </div>
