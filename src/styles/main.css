@@ -126,37 +126,44 @@ h2 {
   font-size: 1.75rem;
 }
 
-.parallax {
+.hero, .hero__image, .hero__inner {
+  width: 100%;
+}
+
+.hero, .hero__image {
+  position: relative;
+}
+
+.hero__image, .hero__inner {
+  height: 100%;
+}
+
+.hero {
+  height: 16rem;
+}
+
+.hero__image {
+  object-fit: cover;
+}
+
+.hero__inner {
+  position: absolute;
+  top: 0;
+  padding: 0 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 20rem;
-
-  background-image: url('../public/images/heros/hero-image.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: 50% 60%;
-}
-
-.parallax__inner {
-  margin: 2rem;
-  padding: 3rem 2rem;
-  color: white;
-}
-
-.parallax__inner > h2 {
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  color: white;
+  background-color: rgb(113, 201, 206, 0.4);
+}
+
+.hero__inner > h2 {
   font-size: 2rem;
   font-weight: bold;
 }
 
-.parallax__inner > p {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 0;
+.hero__inner > p {
   font-size: 1.25rem;
   font-weight: 600;
 }
