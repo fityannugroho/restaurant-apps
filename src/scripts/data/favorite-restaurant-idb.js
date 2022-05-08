@@ -16,11 +16,19 @@ const FavoriteRestaurantIdb = {
   },
 
   async get(id) {
+    if (!id) {
+      return null;
+    }
+
     const db = await dbPromise;
     return db.get(OBJECT_STORE_NAME, id);
   },
 
   async put(restaurant) {
+    if (!Object.prototype.hasOwnProperty.call(restaurant, 'id')) {
+      return null;
+    }
+
     const db = await dbPromise;
     return db.put(OBJECT_STORE_NAME, restaurant);
   },
