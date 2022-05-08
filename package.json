@@ -7,7 +7,8 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "resize-image": "node src/scripts/resize-image.js",
-    "test": "karma start"
+    "test": "karma start",
+    "e2e": "codeceptjs run --steps"
   },
   "keywords": [],
   "author": "fityannugroho <fityannugroho@gmail.com>",
