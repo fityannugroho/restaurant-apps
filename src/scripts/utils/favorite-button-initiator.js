@@ -6,7 +6,7 @@ const FavoriteButtonInitiator = {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._restaurant = restaurant;
 
-    this._renderButton();
+    await this._renderButton();
   },
 
   async _renderButton() {
