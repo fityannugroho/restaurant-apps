@@ -2,13 +2,19 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es2021": true
+        "es2021": true,
+        "node": true,
+        "jasmine": true
     },
     "extends": [
-        "airbnb-base"
+        "airbnb-base",
+        "plugin:jasmine/recommended",
+        "plugin:import/recommended"
     ],
+    "plugins": ["jasmine", "import"],
     "parserOptions": {
-        "ecmaVersion": 12
+        "ecmaVersion": 12,
+        "sourceType": "module"
     },
     "rules": {
         "no-underscore-dangle": "off",
