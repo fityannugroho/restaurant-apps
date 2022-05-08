@@ -1,7 +1,7 @@
-import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from '../../templates/template-creator';
+import { createFavoriteRestaurantButtonTemplate, createUnfavoriteRestaurantButtonTemplate } from '../../templates/template-creator';
 import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb';
 
-const FavoriteButtonInitiator = {
+const FavoriteButtonPresenter = {
   async init({ favoriteButtonContainer, restaurant }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._restaurant = restaurant;
@@ -25,7 +25,7 @@ const FavoriteButtonInitiator = {
   },
 
   _renderFavorite() {
-    this._favoriteButtonContainer.innerHTML = createFavoriteButtonTemplate();
+    this._favoriteButtonContainer.innerHTML = createFavoriteRestaurantButtonTemplate();
 
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
@@ -35,7 +35,7 @@ const FavoriteButtonInitiator = {
   },
 
   _renderFavorited() {
-    this._favoriteButtonContainer.innerHTML = createFavoritedButtonTemplate();
+    this._favoriteButtonContainer.innerHTML = createUnfavoriteRestaurantButtonTemplate();
 
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
@@ -45,4 +45,4 @@ const FavoriteButtonInitiator = {
   },
 };
 
-export default FavoriteButtonInitiator;
+export default FavoriteButtonPresenter;
