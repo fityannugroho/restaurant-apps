@@ -1,20 +1,24 @@
 import './restaurant-item';
 
 class RestaurantList extends HTMLElement {
+  connectedCallback() {
+    this.setAttribute('role', 'list');
+  }
+
   /**
    * @param {any[]} restaurants
    */
   set restaurants(restaurants) {
     this._restaurants = restaurants;
-    this.render();
+    this._render();
   }
 
-  render() {
-    this.setAttribute('role', 'list');
+  _render() {
+    this.innerHTML = '';
     this._restaurants.forEach((restaurant) => {
       const restaurantItem = document.createElement('restaurant-item');
-      restaurantItem.restaurant = restaurant;
       this.appendChild(restaurantItem);
+      restaurantItem.restaurant = restaurant;
     });
   }
 
@@ -23,6 +27,13 @@ class RestaurantList extends HTMLElement {
     this.innerHTML = `
       <p>${message}</p>
     `;
+  }
+
+  renderRestaurantItemSkeleton(amount = 0) {
+    this.innerHTML = '';
+    for (let index = 0; index < amount; index += 1) {
+      this.innerHTML += '<restaurant-item></restaurant-item>';
+    }
   }
 }
 
