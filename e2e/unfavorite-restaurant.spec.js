@@ -24,5 +24,5 @@ Scenario('unfavorite a restaurant', async ({ I }) => {
   I.seeElement('#favoriteButton[aria-label="Unfavorite this restaurant"]');
   I.click('#favoriteButton');
   I.amOnPage('/#/favorites');
-  I.dontSeeElement('restaurant-item');
+  I.see('You don\'t favorite any restaurant yet.', 'restaurant-list');
 });

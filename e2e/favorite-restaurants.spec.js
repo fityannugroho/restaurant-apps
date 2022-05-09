@@ -20,6 +20,7 @@ Scenario('favorite a restaurant', async ({ I }) => {
   const firstRestaurantName = await I.grabTextFrom(firstRestaurant.find('.restaurant-item__content__name'));
   I.click(firstRestaurant);
 
+  I.waitForElement('#favoriteButton');
   I.seeElement('#favoriteButton');
   I.click('#favoriteButton');
 
