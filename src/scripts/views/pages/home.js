@@ -30,7 +30,7 @@ const Home = {
   async afterRender() {
     // Render the restaurant list.
     const restaurantList = document.querySelector('restaurant-list');
-    restaurantList.renderRestaurantItemSkeleton(9);
+    restaurantList.renderRestaurantItemSkeleton(20);
 
     const restaurants = await RestaurantSource.getRestaurants();
     if (restaurants.length === 0) {
