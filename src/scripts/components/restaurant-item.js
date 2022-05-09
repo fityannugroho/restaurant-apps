@@ -1,6 +1,13 @@
 import API_ENDPOINT from '../globals/restaurant-api-endpoint';
 
 class RestaurantItem extends HTMLElement {
+  connectedCallback() {
+    this.classList.add('restaurant-item');
+    this.setAttribute('tabindex', '0');
+    this.setAttribute('role', 'listitem');
+    this._renderSkeleton();
+  }
+
   /**
    * @param {{
    *    id: string;
@@ -13,7 +20,7 @@ class RestaurantItem extends HTMLElement {
    */
   set restaurant(restaurant) {
     this._restaurant = restaurant;
-    this.render();
+    this._render();
   }
 
   _goToDetailPage() {
@@ -30,28 +37,44 @@ class RestaurantItem extends HTMLElement {
     });
   }
 
-  render() {
-    this.setAttribute('tabindex', '0');
-    this.setAttribute('role', 'listitem');
-    this.setAttribute('id', this._restaurant.id);
-    this.classList.add('restaurant-item');
+  _renderSkeleton() {
     this.innerHTML = `
       <section class="restaurant-item__header">
-        <img class="restaurant-item__thumbnail lazyload" data-src="${API_ENDPOINT.RESTAURANT_PICTURE('small', this._restaurant.pictureId)}" alt="Restaurant ${this._restaurant.name}" width="100%">
+        <img class="restaurant-item__thumbnail lazyload" data-src="" alt="Restaurant footage" width="100%">
         <div class="restaurant-item__rating">
           <i class="fa-solid fa-star"></i>
-          <p title="Rating">${(this._restaurant.rating).toPrecision(2)}</p>
+          <p title="Rating">...</p>
         </div>
       </section>
       <section class="restaurant-item__content">
-        <p class="restaurant-item__content__name">${this._restaurant.name}</p>
+        <p class="restaurant-item__content__name">Restaurant Name...</p>
         <div class="restaurant-item__content__city">
           <i class="fa-solid fa-location-dot"></i>
-          <p title="Location">${this._restaurant.city}</p>
+          <p title="Location">City...</p>
         </div>
-        <p class="restaurant-item__content__description">${this._restaurant.description}</p>
+        <p class="restaurant-item__content__description">Description...</p>
       </section>
     `;
+  }
+
+  _render() {
+    this.setAttribute('id', this._restaurant.id);
+
+    const thumbnail = this.querySelector('.restaurant-item__thumbnail');
+    thumbnail.setAttribute('data-src', API_ENDPOINT.RESTAURANT_PICTURE('small', this._restaurant.pictureId));
+    thumbnail.setAttribute('alt', `Restaurant ${this._restaurant.name} footage`);
+
+    const rating = this.querySelector('.restaurant-item__rating > p');
+    rating.textContent = (this._restaurant.rating).toPrecision(2);
+
+    const name = this.querySelector('.restaurant-item__content__name');
+    name.textContent = this._restaurant.name;
+
+    const city = this.querySelector('.restaurant-item__content__city > p');
+    city.textContent = this._restaurant.city;
+
+    const description = this.querySelector('.restaurant-item__content__description');
+    description.textContent = this._restaurant.description;
 
     this._renderGoToDetailPageEvent();
   }

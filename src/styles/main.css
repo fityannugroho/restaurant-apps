@@ -221,6 +221,7 @@ restaurant-list.error {
 
 .restaurant-item__thumbnail {
   aspect-ratio: 4 / 3;
+  min-height: 160px;
 }
 
 .restaurant-item__thumbnail::before {
