@@ -220,13 +220,10 @@ restaurant-list.error {
 }
 
 .restaurant-item__thumbnail {
-  aspect-ratio: 4 / 3;
-  min-height: 160px;
-}
-
-.restaurant-item__thumbnail::before {
-  display: block;
-  min-height: 160px;
+  object-fit: cover;
+  object-position: bottom;
+  height: 20vw;
+  min-height: 200px;
 }
 
 .restaurant-item__rating {
