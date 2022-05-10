@@ -5,6 +5,7 @@ Feature('Customer Review');
 Before(({I}) => {
   I.amOnPage('/');
   I.waitForElement('restaurant-item');
+  I.waitForResponse('https://restaurant-api.dicoding.dev/list');
 });
 
 Scenario('adding a review', async ({ I }) => {
