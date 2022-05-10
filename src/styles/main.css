@@ -232,6 +232,11 @@ restaurant-list.error {
   min-height: 200px;
 }
 
+.restaurant-item__thumbnail::before {
+  display: block;
+  min-height: 200px;
+}
+
 .restaurant-item__rating {
   display: inline-flex;
   align-items: center;
