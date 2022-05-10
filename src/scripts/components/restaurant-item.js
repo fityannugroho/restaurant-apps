@@ -2,7 +2,6 @@ import API_ENDPOINT from '../globals/restaurant-api-endpoint';
 
 class RestaurantItem extends HTMLElement {
   connectedCallback() {
-    this.classList.add('restaurant-item');
     this.setAttribute('tabindex', '0');
     this.setAttribute('role', 'listitem');
     this._renderSkeleton();
