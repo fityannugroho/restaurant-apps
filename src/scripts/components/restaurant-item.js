@@ -18,7 +18,7 @@ class RestaurantItem extends HTMLElement {
    *    rating: number;
    * }} restaurant
    */
-  set restaurant(restaurant) {
+  setRestaurant(restaurant) {
     this._restaurant = restaurant;
     this._render();
   }
@@ -61,6 +61,7 @@ class RestaurantItem extends HTMLElement {
     this.setAttribute('id', this._restaurant.id);
 
     const thumbnail = this.querySelector('.restaurant-item__thumbnail');
+    thumbnail.classList.replace('lazyloaded', 'lazyload');
     thumbnail.setAttribute('data-src', API_ENDPOINT.RESTAURANT_PICTURE('small', this._restaurant.pictureId));
     thumbnail.setAttribute('alt', `Restaurant ${this._restaurant.name} footage`);
 
