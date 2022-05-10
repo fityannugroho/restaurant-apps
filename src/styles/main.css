@@ -91,6 +91,12 @@ a, button {
   font-size: 1.25rem;
 }
 
+.nav__logo > img {
+  object-fit: contain;
+  width: auto;
+  height: 24px;
+}
+
 .nav__list {
   list-style: none;
 }
