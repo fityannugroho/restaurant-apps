@@ -228,7 +228,7 @@ restaurant-list.error {
 .restaurant-item__thumbnail {
   object-fit: cover;
   object-position: bottom;
-  height: 20vw;
+  height: 16vw;
   min-height: 200px;
 }
 
