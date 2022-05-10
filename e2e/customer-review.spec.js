@@ -9,7 +9,7 @@ Before(({I}) => {
 
 Scenario('adding a review', async ({ I }) => {
   const inputNameValue = 'John Doe';
-  const inputReviewValue = 'This is a test review.';
+  const inputReviewValue = `This is a test review. ${new Date().toISOString()}`;
 
   const firstRestaurant = locate('restaurant-item').first();
   I.waitForElement(firstRestaurant);
@@ -17,20 +17,26 @@ Scenario('adding a review', async ({ I }) => {
 
   const reviewForm = locate('#reviewForm');
   I.seeElement(reviewForm);
+  I.waitForElement('#name');
+  I.seeElement('#name');
+  I.waitForElement('#review');
+  I.seeElement('#review');
   I.fillField('#name', inputNameValue);
   I.fillField('#review', inputReviewValue);
+  I.pressKey('Enter');
 
-  const submitButton = locate('.reviews__form__submit');
-  I.seeElement(submitButton);
-  I.saveElementScreenshot(reviewForm, 'review-form.png');
-  // ! Fails in here.
-  I.click(submitButton);
-
+  I.refreshPage();
   I.waitForElement('#reviews');
-  I.seeElement('.review-item');
+  I.seeElement('#reviews');
+  I.refreshPage();
+  I.waitForElement('#reviews');
+  I.seeElement('#reviews');
+
   const myReviewItem = locate('.review-item').last();
+  I.waitForElement(myReviewItem);
+  I.seeElement(myReviewItem);
   const myReviewName = await I.grabTextFrom(myReviewItem.find('.review-item__name'));
-  const myReviewReview = await I.grabTextFrom(myReviewItem.find('.review-item__review'));
+  const myReviewReview = await I.grabTextFrom(myReviewItem.find('.review-item__content'));
   assert.strictEqual(myReviewName, inputNameValue);
   assert.strictEqual(myReviewReview, inputReviewValue);
 });
