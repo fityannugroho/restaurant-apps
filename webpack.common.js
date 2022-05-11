@@ -99,12 +99,13 @@ module.exports = {
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all',
-      minSize: 0,
+      chunks: 'async',
+      minSize: 20000,
       maxSize: 70000,
+      minRemainingSize: 0,
       minChunks: 1,
       maxAsyncRequests: 30,
-      maxInitialRequests: Infinity,
+      maxInitialRequests: 30,
       automaticNameDelimiter: '~',
       enforceSizeThreshold: 50000,
       cacheGroups: {
@@ -119,6 +120,7 @@ module.exports = {
             // npm package names are URL-safe, but some servers don't like @ symbols
             return `npm.${packageName.replace('@', '')}`;
           },
+          reuseExistingChunk: true,
         },
         default: {
           minChunks: 2,

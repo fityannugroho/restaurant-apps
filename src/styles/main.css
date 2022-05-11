@@ -20,6 +20,7 @@ html {
 body {
   width: 100%;
   font-family: cursive;
+  font-display: swap;
   font-size: 12px;
   line-height: 1.5;
   background-color: whitesmoke;
