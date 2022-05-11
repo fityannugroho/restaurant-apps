@@ -4,6 +4,7 @@ const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -130,6 +131,7 @@ module.exports = {
         },
       },
     },
+    minimize: true,
     minimizer: [
       new ImageMinimizerPlugin({
         minimizer: {
@@ -147,6 +149,9 @@ module.exports = {
             },
           },
         },
+      }),
+      new TerserPlugin({
+        parallel: true,
       }),
     ],
   },
