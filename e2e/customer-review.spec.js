@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 const assert = require('assert');
 
 Feature('Customer Review');
 
-Before(({I}) => {
+Before(({ I }) => {
   I.amOnPage('/');
   I.waitForElement('restaurant-item');
   I.waitForResponse('https://restaurant-api.dicoding.dev/list');

@@ -1,8 +1,8 @@
-const assert = require('assert');
+/* eslint-disable no-undef */
 
 Feature('Unfavorite Restaurant');
 
-Before(({I}) => {
+Before(({ I }) => {
   I.amOnPage('/');
   I.waitForElement('restaurant-item');
   I.seeElement('restaurant-item');

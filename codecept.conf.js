@@ -14,13 +14,13 @@ exports.config = {
     Puppeteer: {
       url: 'http://localhost:8080',
       show: false,
-      windowSize: '1200x900'
-    }
+      windowSize: '1200x900',
+    },
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
   },
   bootstrap: null,
   mocha: {},
-  name: 'restaurant-apps'
-}
+  name: 'restaurant-apps',
+};

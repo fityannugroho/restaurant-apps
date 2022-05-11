@@ -9,3 +9,5 @@ declare namespace CodeceptJS {
     interface Actions {}
   }
 }
+
+declare module '@codeceptjs/configure';
