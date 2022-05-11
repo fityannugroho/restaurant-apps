@@ -3,7 +3,7 @@ import RESTAURANT_API_ENDPOINT from '../scripts/globals/restaurant-api-endpoint'
 const createCategoryTagsTemplate = (categories) => categories.map((category) => `<span class="restaurant-detail__category">${category.name}</span>`).join('');
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <img class="restaurant-detail__thumbnail" src="${RESTAURANT_API_ENDPOINT.RESTAURANT_PICTURE('small', restaurant.pictureId)}" alt="Restaurant ${restaurant.name} footage">
+  <img class="restaurant-detail__thumbnail" src="${RESTAURANT_API_ENDPOINT.RESTAURANT_PICTURE('small', restaurant.pictureId)}" alt="${restaurant.name} restaurant view">
   <div class="restaurant-detail__content">
     <h2 class="restaurant-detail__title">${restaurant.name}</h2>
     <table class="restaurant-detail__table">

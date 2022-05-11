@@ -39,7 +39,7 @@ class RestaurantItem extends HTMLElement {
   _renderSkeleton() {
     this.innerHTML = `
       <section class="restaurant-item__header">
-        <img class="restaurant-item__thumbnail lazyload" data-src="" alt="Restaurant footage" width="100%">
+        <img class="restaurant-item__thumbnail lazyload" data-src="" alt="Restaurant view" width="100%">
         <div class="restaurant-item__rating">
           <i class="fa-solid fa-star"></i>
           <p title="Rating">...</p>
@@ -62,7 +62,7 @@ class RestaurantItem extends HTMLElement {
     const thumbnail = this.querySelector('.restaurant-item__thumbnail');
     thumbnail.classList.replace('lazyloaded', 'lazyload');
     thumbnail.setAttribute('data-src', API_ENDPOINT.RESTAURANT_PICTURE('small', this._restaurant.pictureId));
-    thumbnail.setAttribute('alt', `Restaurant ${this._restaurant.name} footage`);
+    thumbnail.setAttribute('alt', `${this._restaurant.name} restaurant view`);
 
     const rating = this.querySelector('.restaurant-item__rating > p');
     rating.textContent = (this._restaurant.rating).toPrecision(2);
