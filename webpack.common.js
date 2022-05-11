@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -72,27 +71,6 @@ module.exports = {
           destination: path.join('icons'),
           purpose: 'any',
           ios: true,
-        },
-      ],
-    }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      clientsClaim: true,
-      cleanupOutdatedCaches: true,
-      runtimeCaching: [
-        {
-          urlPattern: ({ request }) => request.destination === 'image',
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'image-cache',
-            expiration: {
-              purgeOnQuotaError: true,
-              maxEntries: 10,
-            },
-          },
-        },
-        {
-          urlPattern: ({ request }) => !!request,
-          handler: 'StaleWhileRevalidate',
         },
       ],
     }),
