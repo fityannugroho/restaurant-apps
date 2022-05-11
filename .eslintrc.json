@@ -23,5 +23,6 @@
             "devDependencies": true
         }],
         "no-restricted-globals": "off"
-    }
+    },
+    "ignorePatterns": ["node_modules/", "dist/", "build/", "src/public/vendors"]
 }
