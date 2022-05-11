@@ -97,10 +97,11 @@ module.exports = {
     }),
   ],
   optimization: {
+    moduleIds: 'deterministic',
     runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'async',
-      minSize: 20000,
+      chunks: 'all',
+      minSize: 0,
       maxSize: 70000,
       minRemainingSize: 0,
       minChunks: 1,
