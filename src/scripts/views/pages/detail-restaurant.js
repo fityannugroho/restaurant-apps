@@ -5,7 +5,7 @@ import {
 } from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
-import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 
 const DetailRestaurant = {
   async render() {
@@ -62,7 +62,7 @@ const DetailRestaurant = {
     this._renderCustomerReviews(restaurant.customerReviews);
 
     // Render favorite button.
-    FavoriteButtonInitiator.init({
+    FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
       restaurant: {
         id: restaurant.id,

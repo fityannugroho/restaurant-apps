@@ -3,7 +3,7 @@
   --color-1: #E3FDFD;
   --color-2: #CBF1F5;
   --color-3: #A6E3E9;
-  --color-4: #71C9CE;
+  --color-4: #44797D;
   --color-5: #5b5b5b;
 }
 
@@ -20,6 +20,7 @@ html {
 body {
   width: 100%;
   font-family: cursive;
+  font-display: swap;
   font-size: 12px;
   line-height: 1.5;
   background-color: whitesmoke;
@@ -35,7 +36,7 @@ a, button {
   left: 0;
   display: flex;
   align-items: center;
-  background-color: var(--color-3);
+  background-color: var(--color-4);
   color: white;
   padding: 8px;
   font-weight: bold;
@@ -50,6 +51,7 @@ a, button {
 .skip-link:focus {
   top: 0;
   outline: 2px solid var(--color-4);
+  border: 1px solid var(--color-4);
 }
 
 .wrapper {
@@ -89,6 +91,12 @@ a, button {
 
 .nav__logo > h1 {
   font-size: 1.25rem;
+}
+
+.nav__logo > img {
+  object-fit: contain;
+  width: auto;
+  height: 24px;
 }
 
 .nav__list {
@@ -196,7 +204,7 @@ restaurant-list.error {
   padding: 1rem;
 }
 
-.restaurant-item {
+restaurant-item {
   width: 100%;
   box-shadow: 0 2px 6px 0 var(--color-3);
   border-radius: 6px;
@@ -205,11 +213,11 @@ restaurant-list.error {
   cursor: pointer;
 }
 
-.restaurant-item:hover {
+restaurant-item:hover {
   background-color: var(--color-1);
 }
 
-.restaurant-item:focus {
+restaurant-item:focus {
   outline: 2px solid var(--color-4);
   background-color: var(--color-1);
 }
@@ -220,12 +228,15 @@ restaurant-list.error {
 }
 
 .restaurant-item__thumbnail {
-  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: bottom;
+  height: 16vw;
+  min-height: 200px;
 }
 
 .restaurant-item__thumbnail::before {
   display: block;
-  min-height: 160px;
+  min-height: 200px;
 }
 
 .restaurant-item__rating {
