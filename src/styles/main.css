@@ -50,6 +50,7 @@ a, button {
 .skip-link:focus {
   top: 0;
   outline: 2px solid var(--color-4);
+  border: 1px solid var(--color-4);
 }
 
 .wrapper {
