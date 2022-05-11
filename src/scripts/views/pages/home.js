@@ -1,4 +1,3 @@
-import { createRestaurantItemsTemplate } from '../../../templates/template-creator';
 import RestaurantSource from '../../data/restaurant-source';
 
 const Home = {
