@@ -18,7 +18,10 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
-  serviceWorkerRegister();
+
+  if (process.env.NODE_ENV === 'production') {
+    serviceWorkerRegister();
+  }
 });
 
 const skipToContent = document.querySelector('.skip-link');
