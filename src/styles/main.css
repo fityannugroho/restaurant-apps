@@ -3,7 +3,7 @@
   --color-1: #E3FDFD;
   --color-2: #CBF1F5;
   --color-3: #A6E3E9;
-  --color-4: #71C9CE;
+  --color-4: #44797D;
   --color-5: #5b5b5b;
 }
 
@@ -36,7 +36,7 @@ a, button {
   left: 0;
   display: flex;
   align-items: center;
-  background-color: var(--color-3);
+  background-color: var(--color-4);
   color: white;
   padding: 8px;
   font-weight: bold;
