@@ -8,7 +8,7 @@
     "start": "node server.js",
     "build": "npm run resize-image && webpack --config webpack.prod.js",
     "resize-image": "node src/scripts/resize-image.js",
-    "test": "karma start",
+    "test": "karma start --single-run",
     "e2e": "codeceptjs run --steps"
   },
   "keywords": [],
