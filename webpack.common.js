@@ -113,17 +113,29 @@ module.exports = {
     minimizer: [
       new ImageMinimizerPlugin({
         minimizer: {
-          implementation: ImageMinimizerPlugin.squooshMinify,
+          implementation: ImageMinimizerPlugin.sharpMinify,
           options: {
             encodeOptions: {
-              mozjpeg: {
-                // That setting might be close to lossless, but it’s not guaranteed
-                // https://github.com/GoogleChromeLabs/squoosh/issues/85
+              jpeg: {
+                // https://sharp.pixelplumbing.com/api-output#jpeg
                 quality: 60,
               },
               webp: {
-                lossless: 1,
+                // https://sharp.pixelplumbing.com/api-output#webp
+                lossless: true,
               },
+              avif: {
+                // https://sharp.pixelplumbing.com/api-output#avif
+                lossless: true,
+              },
+
+              // png by default sets the quality to 100%, which is same as lossless
+              // https://sharp.pixelplumbing.com/api-output#png
+              png: {},
+
+              // gif does not support lossless compression at all
+              // https://sharp.pixelplumbing.com/api-output#gif
+              gif: {},
             },
           },
         },
