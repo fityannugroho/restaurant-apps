@@ -5,12 +5,14 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
-  test-pull-request:
+  test:
 
     runs-on: ${{ matrix.os }}
 
@@ -27,5 +29,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
+    - name: Run Automated Test
+        run: |
+          npm ci
+          npm run test
     - run: npm run build
