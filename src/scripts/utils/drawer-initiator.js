@@ -15,12 +15,9 @@ const DrawerInitiator = {
       });
     });
 
-    // Init items focus.
-    if (this._isDrawerOpen(drawer)) {
-      this._addNavItemsFocusable(drawer);
-    } else {
-      this._removeNavItemsFocusable(drawer);
-    }
+    window.addEventListener('resize', () => {
+      this._handleNavItemsFocusable(drawer);
+    });
   },
 
   _isDrawerOpen(drawer) {
@@ -31,27 +28,29 @@ const DrawerInitiator = {
     event.stopPropagation();
     drawer.classList.toggle('show');
 
+    this._handleNavItemsFocusable(drawer);
+  },
+
+  _handleNavItemsFocusable(drawer) {
     if (this._isNavItemsFocusable(drawer)) {
-      this._removeNavItemsFocusable(drawer);
-    } else {
       this._addNavItemsFocusable(drawer);
+    } else {
+      this._removeNavItemsFocusable(drawer);
     }
   },
 
   _closeDrawer(event, drawer) {
     event.stopPropagation();
     drawer.classList.remove('show');
-    this._removeNavItemsFocusable(drawer);
+
+    if (!this._isNavItemsFocusable(drawer)) {
+      this._removeNavItemsFocusable(drawer);
+    }
   },
 
   _isNavItemsFocusable(drawer) {
-    const itemsFocusable = [];
-
-    drawer.querySelectorAll('.nav__item a').forEach((item) => {
-      itemsFocusable.push(item.getAttribute('tabindex') === '0');
-    });
-
-    return itemsFocusable.every((item) => item);
+    return this._isDrawerOpen(drawer)
+      || window.matchMedia('(min-width: 600px)').matches;
   },
 
   _removeNavItemsFocusable(drawer) {
