@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^0.8.0",
-    "express": "^4.21.0",
+    "express": "^4.21.1",
     "idb": "^7.0.1",
     "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9"
